@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">working with fm</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="tab_text_1">Uploder for home</string>
+    <string name="tab_text_2">Uploder for info</string>
+    <string name="tab_text_3">Uploder for songs</string>
+    <string name="tab_text_4">songs</string>
+</resources>

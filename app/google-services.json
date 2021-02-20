@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "315155844052",
+    "firebase_url": "https://fm-app-bcb7b.firebaseio.com",
+    "project_id": "fm-app-bcb7b",
+    "storage_bucket": "fm-app-bcb7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315155844052:android:d2e695e19b99c1f3d96441",
+        "android_client_info": {
+          "package_name": "com.example.fmapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315155844052-keu4d3fhb546u5iv09ah8udmbfshdco0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgKr7DYyH3jIRA-pV2JKR6HNGtKHc_PSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315155844052-keu4d3fhb546u5iv09ah8udmbfshdco0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315155844052:android:46ed61ada0b2ef18d96441",
+        "android_client_info": {
+          "package_name": "com.example.workingwithfm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315155844052-keu4d3fhb546u5iv09ah8udmbfshdco0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgKr7DYyH3jIRA-pV2JKR6HNGtKHc_PSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315155844052-keu4d3fhb546u5iv09ah8udmbfshdco0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
