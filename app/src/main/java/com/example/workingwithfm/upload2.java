@@ -20,7 +20,7 @@ public class upload2 {
     }
 
     public String getText() {
-        return text;
+        return "text";
     }
 
     @Exclude

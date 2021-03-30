@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkingWithFm">
-        <activity
+       <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.WorkingWithFm.NoActionBar"> <intent-filter>
+            android:theme="@style/Theme.WorkingWithFm.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboardHidden" android:launchMode="singleTop">
+           <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />

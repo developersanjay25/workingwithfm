@@ -141,7 +141,6 @@ public class infouploader extends Fragment  {
             });
         }
     }
-
     public void recyclerview() {
        dblisener = FirebaseDatabase.getInstance().getReference("info").addValueEventListener(new ValueEventListener() {
             @Override
@@ -154,8 +153,6 @@ public class infouploader extends Fragment  {
                     upload2.setKey(msnapshot.getKey());
                     arrayList.add(upload2);
                     progressBar.setVisibility(View.INVISIBLE);
-
-
                 }
                 madapter.notifyDataSetChanged();
             madapter.onclicklistener(new adapter.setonclicklistener() {

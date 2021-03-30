@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -29,7 +30,7 @@ public class songs extends Fragment {
     songadapter mmmadapter;
     ArrayList<uploadsong> marrayList;
     FirebaseDatabase getsongs;
-
+    DatabaseReference reference;
 
     @Nullable
     @Override
@@ -40,10 +41,10 @@ public class songs extends Fragment {
         recyclerView = v.findViewById(R.id.songrecyclerview);
         marrayList = new ArrayList<>();
         mmmadapter = new songadapter(marrayList);
+        reference = FirebaseDatabase.getInstance().getReference("playsongs");
         fromfirebase();
         recyclerView.setAdapter(mmmadapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
 
         return v;
     }
@@ -63,9 +64,11 @@ public class songs extends Fragment {
                     @Override
                     public void onclick(int position) {
                         uploadsong playsong =  marrayList.get(position);
-                        FirebaseDatabase.getInstance().getReference("playsongs").setValue(playsong.getsong());
-                        Toast.makeText(getContext(), "uploaded successflly", Toast.LENGTH_SHORT).show();
+                        String ref = reference.push().getKey();
+                        reference.child(ref).setValue(marrayList.get(position));
+                        Toast.makeText(getContext(), "uploaded successfully", Toast.LENGTH_SHORT).show();
                     }
+
 
                     @Override
                     public void ondeleteclick(int position) {

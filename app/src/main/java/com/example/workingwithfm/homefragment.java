@@ -112,7 +112,6 @@ public class homefragment extends Fragment {
                     } else {
                         Toast.makeText(getContext(), "select something", Toast.LENGTH_SHORT).show();
                     }
-
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -128,7 +127,6 @@ public class homefragment extends Fragment {
             });
         }
     }
-
     public void set_to_fire() {
         show_name.setValue(Show_name.getText().toString());
     }
