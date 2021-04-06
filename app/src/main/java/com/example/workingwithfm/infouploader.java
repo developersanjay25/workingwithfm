@@ -110,7 +110,6 @@ public class infouploader extends Fragment  {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*");
-
         startActivityForResult(intent, REQUEST_CODE);
     }
 

@@ -36,6 +36,7 @@ public class playlist extends Fragment {
     playlistadapter playlistadapter;
     MediaMetadataRetriever mediaMetadataRetriever;
     ProgressBar progressBar;
+
     @Nullable
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
@@ -45,8 +46,11 @@ public class playlist extends Fragment {
         mediaMetadataRetriever = new MediaMetadataRetriever();
         progressBar = v.findViewById(R.id.progress_circular);
 
-        playlistt.setAdapter(playlistadapter);
+
         songs = FirebaseDatabase.getInstance().getReference("playsongs");
+        playlistadapter = new playlistadapter(mmmarrayList);
+        playlistt.setLayoutManager(new LinearLayoutManager(getContext()));
+
         System.out.println("Arraylist is empty or not : "+mmmarrayList.isEmpty());
         songs.addValueEventListener(new ValueEventListener() {
             @Override
@@ -55,6 +59,7 @@ public class playlist extends Fragment {
                 for (DataSnapshot snapshot1 : snapshot.getChildren())
                 {
                     uploadsong li = snapshot1.getValue(uploadsong.class);
+                    li.setKey(snapshot1.getKey());
                      if (li == null)
                     {
                           Toast.makeText(getContext(), "Null", Toast.LENGTH_SHORT).show();
@@ -63,24 +68,32 @@ public class playlist extends Fragment {
                      else
                          {
                              mmmarrayList.add(li);
-                               } }
+                               }
+                }
+                playlistt.setAdapter(playlistadapter);
+                playlistadapter.setOnClickListener(new playlistadapter.onclicklistener() {
+                    @Override
+                    public void onclick(int position) {
+                        Toast.makeText(getContext(), "you clicked "+position, Toast.LENGTH_SHORT).show();
+                    }
 
+                    @Override
+                    public void ondelete(int postion) {
+                        uploadsong currentitem = mmmarrayList.get(postion);
+                        String item = currentitem.getKey();
+                        FirebaseDatabase.getInstance().getReference("playsongs").child(item).removeValue();
+                        playlistadapter.notifyItemChanged(postion);
+                    }
+                });
                 playlistadapter.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        }); playlistadapter = new playlistadapter(mmmarrayList);
-        playlistt.setLayoutManager(new LinearLayoutManager(getContext()));
+        });
         System.out.println("array list is empty or not : " + mmmarrayList + " Size "+ mmmarrayList.size());
         Toast.makeText(getContext(), "array list is empty or not : " + mmmarrayList + " Size "+ mmmarrayList.size() , Toast.LENGTH_SHORT).show();
-
         return v;
-    }
-
-    void fromdatabase()
-    {
-
     }
 }

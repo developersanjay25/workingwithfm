@@ -66,6 +66,21 @@ public class songs extends Fragment {
                         uploadsong playsong =  marrayList.get(position);
                         String ref = reference.push().getKey();
                         reference.child(ref).setValue(marrayList.get(position));
+                        FirebaseDatabase.getInstance().getReference("playsongs").addValueEventListener(new ValueEventListener() {
+                            @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.getChildrenCount() == 1) {
+                                FirebaseDatabase.getInstance().getReference("time").setValue(System.currentTimeMillis());
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+
                         Toast.makeText(getContext(), "uploaded successfully", Toast.LENGTH_SHORT).show();
                     }
 
@@ -82,9 +97,5 @@ public class songs extends Fragment {
                 Toast.makeText(getContext(), "" + error, Toast.LENGTH_SHORT).show();
             }
         });
-    }
-    public void onclickliseners()
-    {
-
     }
 }

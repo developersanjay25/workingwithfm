@@ -7,7 +7,7 @@ public class uploadsong {
     String img;
     String album;
     String artist;
-    String song;
+    String song,key;
     uploadsong()
     {
 
@@ -51,5 +51,13 @@ public class uploadsong {
     public String getsong()
     {
         return song;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }
